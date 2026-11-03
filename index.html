@@ -349,7 +349,10 @@ PROJECTS.forEach((p, i) => {
   const media = card.querySelector('.media');
   if (!playable) return;
   const start = () => {
-    media.classList.add('playing'); media.classList.remove('has'); media.style.transform = 'none';
+    media.classList.add('playing'); 
+    if (p.ratio === "9/16") 
+    {      media.classList.add('portrait-playing');    };
+    media.classList.remove('has'); media.style.transform = 'none';
     if (y) media.insertAdjacentHTML('beforeend', `<iframe src="https://www.youtube.com/embed/${y}?autoplay=1&mute=1&playsinline=1&rel=0" title="${p.title}" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
     else if (g) media.insertAdjacentHTML('beforeend', `<iframe src="https://drive.google.com/file/d/${g}/preview" title="${p.title}" allow="autoplay; fullscreen" allowfullscreen></iframe>`);
     else if (v) media.insertAdjacentHTML('beforeend', `<iframe src="https://player.vimeo.com/video/${v}?autoplay=1&muted=1" title="${p.title}" allow="autoplay; fullscreen" allowfullscreen></iframe>`);
