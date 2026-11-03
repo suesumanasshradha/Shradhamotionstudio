@@ -345,6 +345,7 @@ PROJECTS.forEach((p, i) => {
     <div class="cap"><span class="no">(${p.no})</span><h3>${p.title}</h3><p>${p.cat}</p>
       ${p.desc ? `<p>${p.desc}</p>` : ''}${p.url ? `<a href="${p.url}" target="_blank" rel="noopener">VIEW ↗</a>` : ''}
     </div>`;
+  const AUTOPLAY = true;
   bento.appendChild(card);
   const media = card.querySelector('.media');
   if (!playable) return;
@@ -364,16 +365,15 @@ PROJECTS.forEach((p, i) => {
 if (AUTOPLAY) {
   const autoPlayObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (
-        entry.isIntersecting &&
-        media.classList.contains('has')
-      ) {
+
+      if (entry.isIntersecting && media.classList.contains('has')) {
         start();
         autoPlayObserver.unobserve(media);
       }
+
     });
   }, {
-    threshold: 0.6
+    threshold: 0.15
   });
 
   autoPlayObserver.observe(media);
