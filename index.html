@@ -360,6 +360,24 @@ PROJECTS.forEach((p, i) => {
     media.querySelector('.play').remove();
   };
   media.addEventListener('click', e => { if (media.classList.contains('has')) start(); });
+  // ---- Automatic video playback when visible
+if (AUTOPLAY) {
+  const autoPlayObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (
+        entry.isIntersecting &&
+        media.classList.contains('has')
+      ) {
+        start();
+        autoPlayObserver.unobserve(media);
+      }
+    });
+  }, {
+    threshold: 0.6
+  });
+
+  autoPlayObserver.observe(media);
+}
 });
 
 // ---- Contact + footer links
