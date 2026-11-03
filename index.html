@@ -80,6 +80,19 @@ h2 em{font-style:italic;color:var(--olive)}
 .media.has{cursor:pointer}
 
 .media iframe,.media video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;z-index:3}
+  /* Portrait video player */
+.media.portrait-playing iframe{
+  width:112%;
+  height:112%;
+  left:-6%;
+  top:-6%;
+}
+
+/* Keep the video frame clean */
+.media.portrait-playing{
+  background:#000;
+  overflow:hidden;
+}
 .glyph{position:absolute;right:-.06em;bottom:-.22em;font:italic 400 clamp(80px,10vw,150px)/1 var(--display);color:rgba(245,241,232,.2);pointer-events:none;letter-spacing:-.05em}
 .t-beige .glyph,.t-cream .glyph,.t-sage .glyph{color:rgba(23,63,43,.14)}
 .play{position:absolute;left:18px;bottom:18px;z-index:2;display:flex;align-items:center;gap:10px;background:var(--cream);color:var(--forest);border:0;border-radius:99px;padding:9px 16px 9px 10px;font:500 11px var(--body);letter-spacing:.06em;cursor:pointer;transition:.3s}
