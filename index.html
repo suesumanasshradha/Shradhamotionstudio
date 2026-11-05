@@ -52,14 +52,14 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;height:6
 .hero{margin-top:18px;border-radius:28px;background:var(--cream);padding:clamp(28px,5vw,72px);min-height:min(66vh,580px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
 .hero>*{position:relative;z-index:2}
 h1{font:400 clamp(44px,7.4vw,150px)/.92 var(--display);letter-spacing:-.02em;color:var(--forest);margin:28px 0 24px}
-h1 em{font-style:italic;color:var(--olive)}
+h1 em{font-style:italic;font-weight:500;color:var(--olive)}
 h1 .hl{background:linear-gradient(transparent 62%,var(--sage) 62%,var(--sage) 88%,transparent 88%);padding:0 .06em}
 h1 span{display:block;overflow:hidden}
 h1 b{display:inline-block;font-weight:inherit;animation:up .9s cubic-bezier(.2,.7,.2,1) both}
 h1 span:nth-child(2) b{animation-delay:.12s}h1 span:nth-child(3) b{animation-delay:.24s}
 @keyframes up{from{transform:translateY(105%)}to{transform:none}}
 .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
-.hero p.sub{font:600 clamp(10.5px,.95vw,12.5px) var(--body);color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
+.hero p.sub{font:600 clamp(10.5px,.95vw,12.5px) var(--body);color:var(--forest);letter-spacing:.1em;text-transform:uppercase}
 .fig{right:26px;top:60%;writing-mode:vertical-rl;opacity:.8}
 .scroll{display:flex;flex-direction:row-reverse;align-items:center;gap:8px;line-height:1;font-size:9.5px;opacity:.85}
 .scroll i{position:relative;opacity:.4;width:1px;height:12px;background:var(--forest);animation:bob 2s ease-in-out infinite}
@@ -117,15 +117,18 @@ h2 em{font-style:italic;color:var(--olive)}
 .about h2{color:var(--cream);font-size:clamp(38px,5vw,96px);margin-top:46px}
 .about .corner{position:absolute;right:0;top:0}
 .about h2 em{color:var(--sage)}
-.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,100px);margin-top:50px}
+.agrid{display:grid;grid-template-columns:1.3fr 1fr;align-items:center;column-gap:clamp(30px,6vw,100px);row-gap:clamp(30px,5vw,70px);margin-top:46px}
+.about .agrid h2{margin:0}
+.aright{text-align:center}
 .lead{font:300 clamp(15px,1.2vw,18px)/1.7 var(--body);color:rgba(245,241,232,.88)}
-.quote{font:italic 400 clamp(20px,2.1vw,30px)/1.2 var(--display);color:var(--sage);margin-top:40px;display:inline-block;transform:skewX(-8deg)}
-.skills{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.quote{font:italic 400 clamp(15px,1.5vw,21px)/1.2 var(--display);color:var(--sage);opacity:.6;margin-top:30px;display:inline-block;transform:skewX(-8deg)}
+.skills{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}
 .skills li{transition:transform .3s,background .3s,color .3s,border-color .3s;cursor:default}
+.skills li.br{flex:0 0 100%;height:0;padding:0;border:0;margin:0;pointer-events:none}
 .skills li:hover{transform:scale(1.07);background:var(--sage);color:var(--forest);border-color:var(--sage)}
 .skills li{border:1px solid rgba(164,173,145,.5);border-radius:99px;padding:6px 16px;font:400 12px var(--body);color:var(--cream)}
 .about .meta{color:var(--sage)}
-.me{position:absolute;right:clamp(0px,4vw,60px);top:0;width:clamp(90px,10vw,140px);aspect-ratio:1;z-index:3;animation:meFloat 9s ease-in-out infinite}
+.me{position:relative;margin:0 auto;width:clamp(100px,11vw,150px);aspect-ratio:1;animation:meFloat 9s ease-in-out infinite}
 .me-in{width:100%;height:100%;overflow:hidden;border-radius:58% 42% 55% 45%/48% 56% 44% 52%;animation:morph 12s ease-in-out infinite;transition:transform .5s cubic-bezier(.2,.7,.2,1);border:1px solid rgba(164,173,145,.55);box-shadow:0 18px 38px -10px rgba(0,0,0,.4);background:var(--sage)}
 .me img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .me:hover .me-in{transform:scale(1.1)}
@@ -149,45 +152,29 @@ h2 em{font-style:italic;color:var(--olive)}
 .clinks a:hover{color:var(--forest);padding-left:14px}
 .clinks a:hover span{transform:translate(4px,-4px)}
 
-/* MAIL FORM */
-.mailbox{position:relative;background:var(--cream);border-radius:22px;box-shadow:0 18px 38px -10px rgba(0,0,0,.3);overflow:hidden}
-.mb-head{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#EDE7D6;font:500 12px var(--body);color:var(--forest)}
-.mb-head i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--sage);margin-left:6px}
-.mailbox .row{display:flex;gap:14px;align-items:center;padding:12px 20px;border-bottom:1px solid rgba(37,44,36,.15);font:400 13px var(--body);transition:background .3s}
-.mailbox .row:focus-within{background:rgba(164,173,145,.14)}
-.mailbox .row span{width:42px;color:var(--mute)}
-.mailbox .row input{flex:1;min-width:0;border:0;background:none;font:inherit;color:var(--ink);outline:none}
-#mmsg{display:block;width:100%;border:0;background:none;resize:none;outline:none;padding:16px 20px;font:300 14px/1.6 var(--body);color:var(--ink);min-height:150px;overflow:hidden}
-.mb-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px 18px}
-.send{display:flex;align-items:center;gap:8px;background:var(--forest);color:var(--cream);border:0;border-radius:99px;padding:11px 22px;font:500 12px var(--body);cursor:pointer;transition:.3s}
-.send:hover{background:var(--olive);transform:translateY(-2px)}
-.send:disabled{opacity:.6;cursor:wait}
-.count{font:400 11px var(--body);color:var(--mute);letter-spacing:.04em}
-.err{padding:0 20px 14px;font:400 12px var(--body);color:#8a3b2e}
-.err:empty{display:none}
-.err a{text-decoration:underline}
-/* delivered animation */
-.done{position:absolute;inset:0;z-index:5;background:var(--cream);display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px}
-.done.show{display:flex}
-.mail{position:relative;width:150px;height:104px;margin:34px 0 14px;perspective:600px;animation:hop 2.4s 2.4s ease-in-out infinite}
-.m-back{position:absolute;inset:0;background:#d6cbb0;border-radius:6px}
-.m-letter{position:absolute;left:14px;right:14px;top:-34px;height:86px;z-index:2;border:1px solid rgba(23,63,43,.28);border-radius:3px;background-color:#fbf8f0;background-image:repeating-linear-gradient(transparent 0 11px,rgba(23,63,43,.2) 11px 12px);background-position:0 14px;animation:slideIn 1s .5s ease-in-out forwards}
-.m-front{position:absolute;inset:0;z-index:3;background:#e8dec4;clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);border-radius:6px}
-.m-flap{position:absolute;left:0;right:0;top:0;height:100%;z-index:1;background:#c9bd9d;clip-path:polygon(0 0,100% 0,50% 58%);transform-origin:top;transform:rotateX(180deg);animation:flapClose .6s 1.5s ease-in-out forwards}
-.m-seal{position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-12px 0 0 -15px;border-radius:50%;background:var(--forest);color:var(--cream);display:grid;place-items:center;font-size:13px;z-index:6;transform:scale(0);box-shadow:0 3px 8px rgba(0,0,0,.3);animation:pop .5s 2.1s cubic-bezier(.3,1.6,.5,1) forwards}
-.m-stamp{position:absolute;right:9px;top:9px;width:20px;height:25px;z-index:6;border:1.5px dashed rgba(23,63,43,.5);border-radius:2px;opacity:0;animation:fadeIn .4s 2.2s forwards}
-.hrt{position:absolute;left:50%;bottom:55%;color:var(--sage);font-style:normal;font-size:13px;opacity:0;animation:rise 1.8s 2.3s ease-out infinite}
-.hrt.h2{margin-left:-46px;animation-delay:2.7s}.hrt.h3{margin-left:36px;animation-delay:3.1s}
-.done h3{font:italic 400 28px/1 var(--display);color:var(--forest)}
-.done p{font:300 13px/1.6 var(--body);color:var(--mute);max-width:32ch}
-.done p b{font-weight:500;color:var(--forest);word-break:break-all}
-.again{margin-top:6px;background:none;border:0;border-bottom:1px solid var(--forest);color:var(--forest);font:500 11px var(--body);letter-spacing:.06em;padding:2px 0;cursor:pointer}
-@keyframes slideIn{to{transform:translateY(46px)}}
-@keyframes flapClose{0%{transform:rotateX(180deg);z-index:1}49%{z-index:1}50%{z-index:4}100%{transform:rotateX(0);z-index:4}}
-@keyframes pop{to{transform:scale(1)}}
-@keyframes fadeIn{to{opacity:1}}
-@keyframes hop{50%{transform:translateY(-6px)}}
-@keyframes rise{0%{opacity:0;transform:translateY(10px)}20%{opacity:1}100%{opacity:0;transform:translateY(-62px)}}
+/* EMAIL ENVELOPE — click: show address · double-click: write an email */
+.mailcard{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.envbtn{background:none;border:0;cursor:pointer;padding:56px 20px 6px;perspective:700px}
+.env{position:relative;display:block;width:200px;height:138px;transition:transform .4s}
+.env i{position:absolute;display:block;font-style:normal}
+.envbtn:hover .env{transform:translateY(-4px) rotate(-1.5deg)}
+.e-back{inset:0;background:#d6cbb0;border-radius:8px;box-shadow:0 18px 38px -10px rgba(0,0,0,.3)}
+.e-letter{left:18px;right:18px;top:10px;height:112px;z-index:2;background-color:#fbf8f0;background-image:repeating-linear-gradient(transparent 0 13px,rgba(23,63,43,.2) 13px 14px);background-position:0 18px;border:1px solid rgba(23,63,43,.28);border-radius:3px;transition:transform .7s .2s cubic-bezier(.3,1.2,.5,1)}
+.e-front{inset:0;z-index:3;background:#e8dec4;clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);border-radius:8px}
+.e-flap{left:0;right:0;top:0;height:100%;z-index:4;background:#c9bd9d;clip-path:polygon(0 0,100% 0,50% 58%);transform-origin:top;transition:transform .5s ease-in-out,z-index 0s .25s}
+.e-seal{left:50%;top:50%;width:34px;height:34px;margin:-14px 0 0 -17px;border-radius:50%;z-index:6;background:var(--forest);color:var(--cream);display:grid;place-items:center;font-size:15px;box-shadow:0 3px 8px rgba(0,0,0,.3);transition:transform .3s}
+.mailcard.open .e-flap{transform:rotateX(180deg);z-index:1}
+.mailcard.open .e-letter{transform:translateY(-62px)}
+.mailcard.open .e-seal{transform:scale(0)}
+.hint{font:400 11px/1.5 var(--body);color:var(--mute);letter-spacing:.06em;max-width:30ch}
+.reveal{display:none;flex-direction:column;align-items:center;gap:12px}
+.mailcard.open .reveal{display:flex;animation:fadeUp .5s both}
+.addr{font:500 clamp(14px,1.4vw,18px) var(--body);color:var(--forest);word-break:break-all}
+.acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.acts button,.acts a{font:500 11px var(--body);letter-spacing:.06em;border:1px solid rgba(37,44,36,.35);border-radius:99px;padding:8px 16px;background:none;color:var(--forest);cursor:pointer;transition:.3s}
+.acts .primary{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.acts button:hover,.acts a:hover{background:var(--olive);color:var(--cream);border-color:var(--olive)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}}
 @media(max-width:900px){.cgrid{grid-template-columns:1fr}}
 
 /* FOOTER */
@@ -206,7 +193,10 @@ a.top:hover{background:var(--forest);color:var(--cream);border-color:var(--fores
   .bento{grid-template-columns:repeat(6,1fr)}
   .card.w9,.card.r{grid-column:span 6}
   .card.p3{grid-column:span 3}
-  .cols{grid-template-columns:1fr}
+  .agrid{grid-template-columns:1fr}
+  .agrid>.me{order:-1;margin:0}
+  .aright{text-align:left}
+  .skills{justify-content:flex-start}
 }
 @media(max-width:767px){
   .links{position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--beige);border-bottom:1px solid rgba(37,44,36,.15);max-height:0;overflow:hidden;transition:max-height .35s}
@@ -220,14 +210,17 @@ a.top:hover{background:var(--forest);color:var(--cream);border-color:var(--fores
   .card.p3 .media{width:100%;max-width:420px;margin:0 auto}
   .card.p3 .cap{width:100%;max-width:420px;margin:0 auto}
   .frow{flex-direction:column;text-align:center}.fr{justify-content:center}
-  .me{position:relative;right:auto;top:auto;margin:0 0 26px;width:100px}
+  .me{width:96px}
+  .skills{gap:6px}
+  .skills li{font-size:10.5px;padding:5px 10px;white-space:nowrap}
+  .skills li.br.m{display:block}
+  .skills li.br.d{display:none}
   .note,.blob,.fig{display:none}
   .circle{opacity:.5}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}.circle path{stroke-dashoffset:0}
-  .m-seal{transform:scale(1)}.m-flap{transform:none;z-index:4}.m-letter{transform:translateY(46px)}.m-stamp{opacity:1}.hrt{display:none}
 }
 </style>
 </head>
@@ -273,19 +266,19 @@ a.top:hover{background:var(--forest);color:var(--cream);border-color:var(--fores
 <section class="about grain" id="about">
   <div class="bigA" aria-hidden="true">Aa</div>
   <div class="wrap">
-    <div class="me"><div class="me-in"><img id="mepic" alt="Portrait of Shradha" width="640" height="640"></div></div><!-- ✏️ photo is set at the very bottom of this file (PHOTO) -->
     <div class="meta">About — 02</div>
-    <h2>A little <em>about</em> me.</h2>
-    <div class="cols">
-      <div>
+    <div class="agrid">
+      <h2>A little <em>about</em> me.</h2>
+      <div class="me"><div class="me-in"><img id="mepic" alt="Portrait of Shradha" width="640" height="640"></div></div><!-- ✏️ photo is set at the very bottom of this file (PHOTO) -->
+      <div class="aleft">
         <p class="lead">“I work across motion video editing, motion graphics engineer and visual experiments, to explore more ways to make new ideas. My goal in life to get fulfillment.”</p>
         <p class="quote">“Curiosity keeps things moving.”</p>
       </div>
-      <div>
+      <div class="aright">
         <p class="meta">Tools I reach for</p>
-        <!-- ✏️ edit, add or remove <li> items -->
+        <!-- ✏️ edit, add or remove <li> items. The empty <li class="br m"> items are line breaks (pills show as 3 + 3 + 1) -->
         <ul class="skills">
-          <li>Adobe After Effects</li><li>Adobe Premiere Pro</li><li>DaVinci Resolve</li><li>Photoshop</li><li>Illustrator</li><li>Blender</li><li>AI-assisted creative tools</li>
+          <li>Adobe After Effects</li><li>Adobe Premiere Pro</li><li>DaVinci Resolve</li><li class="br m"></li><li>Photoshop</li><li>Illustrator</li><li>Blender</li><li class="br m"></li><li>AI-assisted creative tools</li>
         </ul>
       </div>
     </div>
@@ -301,28 +294,19 @@ a.top:hover{background:var(--forest);color:var(--cream);border-color:var(--fores
       <div class="icons" id="clinks"></div>
     </div>
 
-    <form class="mailbox grain" id="mailform" novalidate>
-      <div class="mb-head"><span>New Message</span><span aria-hidden="true"><i></i><i></i><i></i></span></div>
-      <label class="row"><span>To</span><input type="text" id="mto" readonly aria-label="To"></label>
-      <label class="row"><span>From</span><input type="email" id="mfrom" placeholder="your email address" autocomplete="email" required></label>
-      <textarea id="mmsg" rows="6" placeholder="Write your message… (up to 200 words)" aria-label="Message" required></textarea>
-      <div class="mb-foot">
-        <button class="send" type="submit" id="msend"><span>Send message</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
-        <span class="count" id="mcount">0 / 200 words</span>
-      </div>
-      <p class="err" id="merr" role="alert"></p>
-
-      <div class="done" id="mdone" aria-live="polite">
-        <div class="mail">
-          <i class="hrt">♥</i><i class="hrt h2">♥</i><i class="hrt h3">♥</i>
-          <div class="m-back"></div><div class="m-letter"></div><div class="m-front"></div><div class="m-flap"></div>
-          <div class="m-stamp"></div><div class="m-seal">♥</div>
+    <div class="mailcard" id="mailcard">
+      <button class="envbtn" id="envbtn" type="button" aria-expanded="false" aria-label="Show my email address">
+        <span class="env"><i class="e-back"></i><i class="e-letter"></i><i class="e-front"></i><i class="e-flap"></i><i class="e-seal">♥</i></span>
+      </button>
+      <p class="hint">Click the envelope to see my email · double-click to write to me</p>
+      <div class="reveal">
+        <span class="addr" id="addr"></span>
+        <div class="acts">
+          <button type="button" id="copybtn">Copy</button>
+          <a class="primary" id="gmailbtn" href="#" target="_blank" rel="noopener">Gmail ↗</a>
         </div>
-        <h3>Message delivered</h3>
-        <p>Thank you! Your note is on its way to <b id="mdemail"></b>. I’ll reply to your email soon.</p>
-        <button type="button" class="again" id="magain">Send another</button>
       </div>
-    </form>
+    </div>
   </div></div>
 </section>
 </main>
@@ -468,38 +452,22 @@ $('#wa').href = L.whatsapp;
 $('#logo').textContent = $('#fname').textContent = CONFIG.name;
 $('#yr').textContent = new Date().getFullYear();
 
-// ---- Contact form (sends via FormSubmit.co → your Gmail; no backend needed)
-// FIRST TIME ONLY: send yourself a test message, then open the "Activate form" email FormSubmit sends to your Gmail and click Confirm.
-const MAXW = 200;                                   // ✏️ max words in a message
-const form = $('#mailform'), ta = $('#mmsg'), err = $('#merr'), sendBtn = $('#msend');
-$('#mto').value = CONFIG.email; $('#mdemail').textContent = CONFIG.email;
-const fit = () => { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; };
-const words = v => (v.match(/\S+/g) || []).length;
-ta.addEventListener('input', () => {
-  const m = [...ta.value.matchAll(/\S+/g)];
-  if (m.length > MAXW) ta.value = ta.value.slice(0, m[MAXW - 1].index + m[MAXW - 1][0].length);   // trim past the limit
-  fit(); $('#mcount').textContent = words(ta.value) + ' / ' + MAXW + ' words';
-});
-form.addEventListener('submit', async e => {
-  e.preventDefault(); err.textContent = '';
-  const from = $('#mfrom').value.trim(), msg = ta.value.trim();
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(from)) { err.textContent = 'Please enter a valid email so I can reply.'; return; }
-  if (!msg) { err.textContent = 'Please write a message first.'; return; }
-  sendBtn.disabled = true; sendBtn.firstElementChild.textContent = 'Sending…';
-  try {
-    const res = await fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: from, message: msg, _subject: 'New message from your portfolio', _template: 'table', _captcha: 'false' })
-    });
-    const j = await res.json();
-    if (!res.ok || j.success === 'false' || j.success === false) throw new Error();
-    $('#mdone').classList.add('show');
-  } catch (_) {
-    err.innerHTML = 'Couldn’t send from here. <a href="mailto:' + CONFIG.email + '?subject=Hello&body=' + encodeURIComponent(msg) + '">Open it in your email app instead</a>.';
-  }
-  sendBtn.disabled = false; sendBtn.firstElementChild.textContent = 'Send message';
-});
-$('#magain').onclick = () => { $('#mdone').classList.remove('show'); ta.value = ''; fit(); $('#mcount').textContent = '0 / ' + MAXW + ' words'; };
+// ---- Email envelope: click = show my address · double-click = open a new email addressed to me
+const card = $('#mailcard'), envbtn = $('#envbtn');
+const MAIL = CONFIG.email;
+$('#addr').textContent = MAIL;
+const GMAIL = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(MAIL);
+$('#gmailbtn').href = GMAIL;
+const setOpen = o => { card.classList.toggle('open', o); envbtn.setAttribute('aria-expanded', o); };
+let clickTimer;
+envbtn.addEventListener('click', () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => setOpen(!card.classList.contains('open')), 220); });
+envbtn.addEventListener('dblclick', () => { clearTimeout(clickTimer); setOpen(true); window.open(GMAIL, '_blank', 'noopener'); });
+$('#copybtn').onclick = async e => {
+  const b = e.currentTarget;
+  try { await navigator.clipboard.writeText(MAIL); }
+  catch (_) { const x = document.createElement('textarea'); x.value = MAIL; document.body.appendChild(x); x.select(); document.execCommand('copy'); x.remove(); }
+  b.textContent = 'Copied ✓'; setTimeout(() => b.textContent = 'Copy', 1800);
+};
 
 // ---- Nav behaviour
 const nav = $('#nav');
